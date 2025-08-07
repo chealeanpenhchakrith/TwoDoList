@@ -10,7 +10,12 @@
   </div>
   <div v-else>
     <ul>
-      <li v-for="task in taskList" :key="task">{{ task }}</li>
+      <li v-for="task in taskList" :key="task"> 
+        <label>
+          <input type="checkbox">
+          <span>{{ task }}</span>
+        </label>
+      </li>
     </ul>
   </div>
 </template>
@@ -28,5 +33,13 @@ const addTask = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+li {
+  list-style-type: none;
+}
+
+input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+}
+</style>
 
