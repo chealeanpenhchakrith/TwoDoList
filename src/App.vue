@@ -7,6 +7,7 @@
   <label> Enter a task : 
     <input type="text">
   </label>
+  <button>Add Task</button>
 </template>
 
 <style scoped>
