@@ -2,7 +2,7 @@
   <h1>To Do List</h1>
   <label>
     Enter a task :
-    <input type="text" v-model="currentTask" />
+    <input type="text" v-model="currentTask" @keyup.enter="addTask"/>
   </label>
   <button v-on:click="addTask">Add Task</button>
   <div v-if="taskList.length === 0">
@@ -10,7 +10,7 @@
   </div>
   <div v-else>
     <ul>
-      <li v-for="(task, index) in taskList" :key="index">{{ task }}</li>
+      <li v-for="task in taskList" :key="task">{{ task }}</li>
     </ul>
   </div>
 </template>
