@@ -15,10 +15,10 @@
   </div>
   <div v-else>
     <ul>
-      <li v-for="task in taskList" :key="task">
+      <li v-for="task in taskList" :key="task.title">
         <label>
           <input type="checkbox" />
-          <span>{{ task }}</span>
+          <span>{{ task.title }}</span>
         </label>
       </li>
     </ul>
@@ -33,8 +33,12 @@ const taskList = ref([]);
 const currentTask = ref("");
 
 const addTask = () => {
-  taskList.value.push(currentTask.value);
-  currentTask.value = "";
+  taskList.value.push({
+    title: currentTask.value,
+    completed: false,
+    data: Date.now()
+  })
+  currentTask.value = ''
 };
 </script>
 
