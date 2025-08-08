@@ -7,7 +7,7 @@
         Enter a task :
         <input type="text" v-model="currentTask" placeholder="Cook food.."/>
       </label>
-      <button>Add Task</button>
+      <button :disabled="currentTask.length === 0">Add Task</button>
     </fieldset>
   </form>
   <div v-if="taskList.length === 0">
