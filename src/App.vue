@@ -1,18 +1,23 @@
 <template>
-  <h1>To Do List</h1>
-  <label>
-    Enter a task :
-    <input type="text" v-model="currentTask" @keyup.enter="addTask"/>
-  </label>
-  <button v-on:click="addTask">Add Task</button>
+  <h1>Hello Rith !</h1>
+  <form @submit.prevent="addTask">
+    <fieldset>
+      <legend>To Do List</legend>
+      <label>
+        Enter a task :
+        <input type="text" v-model="currentTask" @keyup.enter="addTask" />
+      </label>
+      <button v-on:click="addTask">Add Task</button>
+    </fieldset>
+  </form>
   <div v-if="taskList.length === 0">
     <h3>No Task to display</h3>
   </div>
   <div v-else>
     <ul>
-      <li v-for="task in taskList" :key="task"> 
+      <li v-for="task in taskList" :key="task">
         <label>
-          <input type="checkbox">
+          <input type="checkbox" />
           <span>{{ task }}</span>
         </label>
       </li>
@@ -25,11 +30,11 @@ import { ref } from "vue";
 
 const taskList = ref([]);
 
-const currentTask = ref('');
+const currentTask = ref("");
 
 const addTask = () => {
   taskList.value.push(currentTask.value);
-  currentTask.value = '';
+  currentTask.value = "";
 };
 </script>
 
@@ -39,7 +44,6 @@ li {
 }
 
 input[type="checkbox"]:checked + span {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 </style>
-
