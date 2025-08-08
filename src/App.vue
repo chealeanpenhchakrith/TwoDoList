@@ -22,6 +22,10 @@
         </label>
       </li>
     </ul>
+    <label>
+      <input type="checkbox" v-model="hideCompleted"> 
+      Masquer les tâches complétées
+    </label>
   </div>
 </template>
 
@@ -31,6 +35,8 @@ import { ref } from "vue";
 const taskList = ref([]);
 
 const currentTask = ref("");
+
+const hideCompleted = ref(false)
 
 const addTask = () => {
   taskList.value.push({
@@ -42,7 +48,11 @@ const addTask = () => {
 };
 
 const sortedToDo = () => {
-  return taskList.value.toSorted((a, b) => a.completed > b.completed ? 1 : -1)
+  const sortedToDos = taskList.value.toSorted((a, b) => a.completed > b.completed ? 1 : -1)
+  if (hideCompleted.value === true) {
+    return sortedToDos.filter(t => t.completed === false)
+  }
+  return sortedToDos
 }
 </script>
 
