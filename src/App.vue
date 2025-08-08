@@ -5,9 +5,9 @@
       <legend>To Do List</legend>
       <label>
         Enter a task :
-        <input type="text" v-model="currentTask" @keyup.enter="addTask" />
+        <input type="text" v-model="currentTask" placeholder="Cook food.."/>
       </label>
-      <button v-on:click="addTask">Add Task</button>
+      <button>Add Task</button>
     </fieldset>
   </form>
   <div v-if="taskList.length === 0">
