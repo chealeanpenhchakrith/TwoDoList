@@ -15,9 +15,9 @@
   </div>
   <div v-else>
     <ul>
-      <li v-for="task in taskList" :key="task.title">
+      <li v-for="task in taskList" :key="task.title" :class="{completed: task.completed}">
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" v-model="task.completed"/>
           <span>{{ task.title }}</span>
         </label>
       </li>
@@ -47,7 +47,8 @@ li {
   list-style-type: none;
 }
 
-input[type="checkbox"]:checked + span {
+.completed {
+  opacity: .5;
   text-decoration: line-through;
 }
 </style>
